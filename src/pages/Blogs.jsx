@@ -71,9 +71,6 @@ const Blogs = () => {
             </div>
           </div>
 
-          <div className={`${styles.cardImage} ${styles.cardImageOverlay}`}>
-            Circuit Board
-          </div>
         </Link >
       ))}
     </div>
