@@ -1,0 +1,27 @@
+.footercontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    width: 100%;
+    height: 60px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap; /* 👈 Optional: wrap on small screens */
+}
+
+.navLinks li {
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navLinks li:hover {
+  color: darkslategray;
+}

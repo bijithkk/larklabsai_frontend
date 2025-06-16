@@ -1,0 +1,150 @@
+/* Dialog.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 300;
+}
+
+.dialog {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  max-width: 28rem;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+.closeButton:hover {
+  color: #4b5563;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  width: 3rem;
+  height: 3rem;
+  color: #374151;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #111827;
+}
+.input::placeholder {
+  color: #9ca3af;
+}
+.input:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px black;
+}
+
+.button {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.button:hover {
+  background-color: #1f2937;
+}
+
+.backLink {
+  display: block;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #4b5563;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.backLink:hover {
+  color: #1f2937;
+}
+
+.signInText {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-top: 1.5rem;
+}
+
+.signInLink {
+  color: #111827;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+.signInLink:hover {
+  color: #374151;
+}

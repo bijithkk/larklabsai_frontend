@@ -1,0 +1,54 @@
+.homecontainer {
+  display: flex;
+  justify-content: end;
+  background-color: antiquewhite;
+  width: 100%; /* Full width of screen */
+  height: 545px;
+  border-bottom: 1px solid black;
+}
+
+.headingcontainer {
+    width: 50%;
+    padding: 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    font-family: gt-super, Georgia, Cambria, "Times New Roman", Times, serif;
+    color: #242424;
+    font-size: 80px;
+    line-height: 0.9;  
+    margin-top: 1.5em;
+}
+
+.headingcontainer p {
+  margin-top: 0.2em; /* 👈 reduce space above paragraph */
+  font-size: 1.25rem; /* optional styling */
+  line-height: 1.4;   /* optional line height */
+}
+
+.button {
+    width: 196px;
+    text-align: center;
+    border-radius: 99em;
+    border-color: rgba(25, 25, 25, 1);
+    background: rgba(25, 25, 25, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+/* .imgcontainer {
+    width: 40%;
+    padding: 1rem 5rem;
+} */
+
+.imgcontainer {
+  width: 30%;
+  /* height: 100px;  */
+  /* padding: 1rem 5rem; */
+  background-image: url("https://miro.medium.com/v2/format:webp/4*SdjkdS98aKH76I8eD0_qjw.png");
+  background-size: cover; /* or contain, depending on effect you want */
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}

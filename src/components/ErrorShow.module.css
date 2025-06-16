@@ -1,0 +1,66 @@
+/* ErrorShow.module.css */
+.errorContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  max-width: 400px;
+  min-width: 300px;
+}
+
+.errorContent {
+  background-color: #fee;
+  border: 2px solid #dc2626;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+  animation: slideIn 0.3s ease-out;
+}
+
+.errorIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.errorMessage {
+  flex: 1;
+  color: #dc2626;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #dc2626;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
