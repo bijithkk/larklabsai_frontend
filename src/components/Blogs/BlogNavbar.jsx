@@ -37,7 +37,7 @@ const BlogNavbar = () => {
     <>
     <div className={styles.navcontainer}>
       <div className={styles.leftcontent}>
-        <h1 className={styles.logo}>Medium</h1>
+        <h1 onClick={() => navigate('/blogs')} className={styles.logo}>Medium</h1>
         <div className={styles.searchcontainer}>
             <CiSearch/>
             <input type="text" placeholder='search'value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} onKeyPress={handleKeyPress}/>

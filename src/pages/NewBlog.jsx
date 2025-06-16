@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useBlogs } from "../context/BlogContext";
 import { createBlog, updateBlog, getBlogById } from "../services/blogService";
 import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorShow from "../components/ErrorShow";
 
 const NewBlog = () => {
   const { id } = useParams();
@@ -17,6 +18,9 @@ const NewBlog = () => {
   const { token, fetchBlogs } = useBlogs();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleCloseError = () => setError("");
 
 
   const handleInputChange = (field, value) => {
@@ -34,16 +38,35 @@ const NewBlog = () => {
     }));
   };
 
+  // useEffect(() => {
+  //   if (id) {
+  //     const fetchBlog = async () => {
+  //       const res = await getBlogById(id);
+  //       setFormData({
+  //         title: res.data.blog.title,
+  //         content: res.data.blog.content,
+  //         coverImage: null, // you can keep it null; uploading new one will replace
+  //       });
+  //       setExistingImage(res.data.blog.coverImage);
+  //     };
+  //     fetchBlog();
+  //   }
+  // }, [id]);
   useEffect(() => {
     if (id) {
       const fetchBlog = async () => {
-        const res = await getBlogById(id);
-        setFormData({
-          title: res.data.blog.title,
-          content: res.data.blog.content,
-          coverImage: null, // you can keep it null; uploading new one will replace
-        });
-        setExistingImage(res.data.blog.coverImage);
+        try {
+          const res = await getBlogById(id);
+          setFormData({
+            title: res.data.blog.title,
+            content: res.data.blog.content,
+            coverImage: null,
+          });
+          setExistingImage(res.data.blog.coverImage);
+        } catch (err) {
+          console.error("Error fetching blog:", err);
+          setError("Failed to fetch blog. Please try again.");
+        }
       };
       fetchBlog();
     }
@@ -67,7 +90,8 @@ const NewBlog = () => {
       await fetchBlogs();
       navigate("/blogs");
     } catch (err) {
-      console.error("Blog error", err);
+      console.error("Blog error", err.response);
+      setError(err.response.data.message);
     } finally {
       setLoading(false);
     }
@@ -85,6 +109,8 @@ const NewBlog = () => {
 
   return (
     <div className={styles.container}>
+      {error && <ErrorShow message={error} onClose={handleCloseError} />}
+
       <div className={styles.formContainer}>
         <h1 className={styles.title}>{isEdit ? "Update Blog" : "New Blog"}</h1>
 
