@@ -98,11 +98,7 @@ const NewBlog = () => {
   };
 
   const handleCancel = () => {
-    setFormData({
-      title: "",
-      content: "",
-      coverImage: null,
-    });
+    navigate(-1);
   };
 
   if (loading) return <LoadingSpinner/>;
