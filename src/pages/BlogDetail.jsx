@@ -5,6 +5,7 @@ import { getBlogById,deleteBlog  } from "../services/blogService";
 import { useNavigate } from "react-router-dom";
 import { useBlogs } from "../context/BlogContext";
 import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorShow from "../components/ErrorShow";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -37,8 +38,8 @@ const BlogDetail = () => {
 
   const token = localStorage.getItem("token");
   if (!token) {
-    alert("You must be logged in to delete a blog.");
-    return;
+    setError("You must be logged in to delete a blog.");
+    return ;
   }
 
   try {
@@ -48,13 +49,14 @@ const BlogDetail = () => {
     navigate("/blogs"); // redirect to homepage or blog list
   } catch (error) {
     console.error("Error deleting blog:", error);
-    alert("Failed to delete blog. Please try again.");
+    setError("Failed to delete blog. Please try again.");
   }
 };
 
+  const handleCloseError = () => setError("");
 
   if (loading) return <LoadingSpinner/>
-  if (error || !blog) return <p>{error}</p>;
+  if (error) return <ErrorShow message={error} onClose={handleCloseError} />;
 
   return (
       <div className={styles.container}>
